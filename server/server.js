@@ -12,6 +12,9 @@ const stripe = require("stripe")(
   "sk_test_51O6x9MSB83kpNroCLe1bP7qTtwoB9D7OGT5vbLbsvO2u6K6OjAtqOeGY2yHnGL8vLwUzoE1KzStYitg5ajDMEjGq00gIPtiFwO "
 );
 
+const YOUR_DOMAIN = "http://localhost:4242";
+
+
 app.post("/checkout", async (req, res, next) => {
   try {
     const session = await stripe.checkout.sessions.create({
@@ -75,8 +78,8 @@ app.post("/checkout", async (req, res, next) => {
         quantity: item.quantity,
       })),
       mode: "payment",
-      success_url: "/success.html",
-      cancel_url: "/cancel.html",
+           success_url: `${YOUR_DOMAIN}/success.html`,
+           cancel_url: `${YOUR_DOMAIN}/cancel.html`,
     });
 
     res.status(200).json(session);
