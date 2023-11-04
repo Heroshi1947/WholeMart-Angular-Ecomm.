@@ -9,7 +9,7 @@ app.use(bodyparser.json());
 app.use(cors({ origin: true, credentials: true }));
 
 const stripe = require("stripe")(
-  "sk_test_51O6x9MSB83kpNroCLe1bP7qTtwoB9D7OGT5vbLbsvO2u6K6OjAtqOeGY2yHnGL8vLwUzoE1KzStYitg5ajDMEjGq00gIPtiFwO "
+  "sk_test_51O6x9MSB83kpNroCLe1bP7qTtwoB9D7OGT5vbLbsvO2u6K6OjAtqOeGY2yHnGL8vLwUzoE1KzStYitg5ajDMEjGq00gIPtiFwO"
 );
 
 const YOUR_DOMAIN = "https://wholemart-angular.vercel.app";
