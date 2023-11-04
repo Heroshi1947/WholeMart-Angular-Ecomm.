@@ -12,7 +12,7 @@ const stripe = require("stripe")(
   "sk_test_51O6x9MSB83kpNroCLe1bP7qTtwoB9D7OGT5vbLbsvO2u6K6OjAtqOeGY2yHnGL8vLwUzoE1KzStYitg5ajDMEjGq00gIPtiFwO "
 );
 
-const YOUR_DOMAIN = "http://localhost:4242";
+const YOUR_DOMAIN = "https://wholemart-angular.vercel.app";
 
 
 app.post("/checkout", async (req, res, next) => {
@@ -86,6 +86,11 @@ app.post("/checkout", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ error: 'Internal Server Error' });
 });
 
 app.listen(4242, () => console.log("app is running on port 4242"));
